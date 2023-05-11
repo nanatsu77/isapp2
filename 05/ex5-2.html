@@ -12,6 +12,8 @@
         osql.requireLogin();//すべてのページに入れる．google認証をして，osql.connect()や，osql.getMe()を使えるようにしてくれる．
 
         $().ready(function(){
+           
+            setInterval(doSelect, 2000);
             doSelect();
         });
 
@@ -43,6 +45,7 @@
                 html = html + '<li>' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
             }
             html = html + '</ul>';
+            
             document.getElementById('result2').innerHTML = html;
         }
 
