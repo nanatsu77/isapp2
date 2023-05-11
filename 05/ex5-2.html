@@ -13,6 +13,7 @@
 
         function button1Pressed() {
             doInsert();
+            
         }
 
         async function doInsert() {
@@ -22,9 +23,16 @@
             var sql = `insert into Tweets (name, tweet, time) values("${userid}", "${tweet}", now());`;
             var objects = await osql.connect(sql);
             console.log(objects);
+            document.getElementById('tf2').value ='';
+            
 
-            document.getElementById('result').innerHTML = "tweetしました";
+           
+            
         }
+
+        
+          
+            
     </script>
 
 </head>
