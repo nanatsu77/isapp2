@@ -15,6 +15,10 @@
             execSelect();
         });
 
+        function button1Pressed() {
+            delet();
+        }
+
         async function execSelect() {
             var sql = 'select * from Users';
             var objects = await osql.connect(sql);
@@ -32,12 +36,28 @@
             html = html + '</table>';
             document.getElementById('result').innerHTML = html;
         }
+        
+        async function delet() {
+            var userid = document.getElementById('tf').value;
+            
+
+            var sql = `delete from Users where id = "${userid}"`;
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            document.getElementById('result').innerHTML = 'OK';
+        }
+
     </script>
 
 </head>
 
 <body>
     <h1>Users</h1>
+    <hr>
+    <label>ID:<input id = 'tf' type="text" value=""></label>
+    
+    <button onclick="button1Pressed()">削除</button>
+    <hr>
     <p id="result">xxxx</p>
 </body>
 
